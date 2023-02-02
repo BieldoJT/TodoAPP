@@ -1,14 +1,17 @@
 import tarefa from "../Models/tarefa.js"
+import { bdUsuario } from "../Infra/bd.js"
 
+class UsuarioController{
+    static rotas(app){
+    app.get('/Usuario', tarefa.listar)
+    app.post('/Usuario', tarefa.incluir) 
+}
+    static listar(app){
+        return app.get("/Usuario",(req,res)=>{
+                const jsonUsuario = bdUsuario
+                res.send(jsonUsuario)
+        })
 
-
-
-
-function rotas(app){
-        app.get('/usuario', tarefa.listar)
-    }
-function listar(req, res){
-        app.send('Rota ativada com Get e recurso usuario: lista de usuarios deve ser retornad')
-    }
-
-export default {rotas:rotas}
+}
+}
+export default UsuarioController

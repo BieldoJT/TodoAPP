@@ -1,18 +1,19 @@
 import express from 'express'
+import usuario from './Models/usuario.js'
 import tarefa from './Models/tarefa.js'
 
 const app = express()
+import tarefaController from './Controllers/tarefa-controller.js' 
+import UsuarioController from './Controllers/usuario-controller.js'
 
-app.use(express.json())
 
-import usuarioController from './Controllers/usuario-controller.js'
-import tarefaController from './Controllers/tarefa-controller.js'
-
-usuarioController.rotas(app)
 tarefaController.listar(app)
-tarefaController.inserir(app)
+UsuarioController.listar(app)
 
-let coisa = new tarefa.tarefa("a","b","c","D")
-console.log(coisa)
+
+
+
+
+
 export default {inferno:app}
 

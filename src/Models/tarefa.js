@@ -4,9 +4,7 @@ function listar(req, res){
 
 function incluir (req, res){
 
-    res.json(req.body)
-
-    console.log(req.body)
+    res.send("jhghjwgdkjhdgjh")
 
 }
 
@@ -18,4 +16,4 @@ class tarefas{
         this.data_de_criacao = data_de_criacao
     }
 }
-export default {listar:listar,incluir:incluir,tarefa:tarefas}
+export default {listar,incluir,tarefas}

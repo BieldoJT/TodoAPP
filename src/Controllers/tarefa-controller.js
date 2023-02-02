@@ -1,11 +1,18 @@
 import tarefa from "../Models/tarefa.js"
+import { bdTarefas } from "../Infra/bd.js"
 
-function listar(app){
-app.get('/Tarefas', tarefa.listar) 
+class tarefaController{
+    static rotas(app){
+    app.get('/Tarefas', tarefa.listar)
+    app.post('/Tarefas', tarefa.incluir) 
 }
-function inserir(app){
-    app.post('/Tarefas', tarefa.incluir)
+    static listar(app){
+        return app.get("/Tarefas",(req,res)=>{
+                const jsonTarefas = bdTarefas
+                res.send(jsonTarefas)
+        })
+
+}
 }
 
-
-export default {inserir,listar}
+export default tarefaController
